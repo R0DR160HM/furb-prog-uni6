@@ -19,10 +19,9 @@ public class Uni6Exe02 {
         scan.close();
 
         double media = total / vetor.length;
+
         for (double num : vetor) {
-            if (num > media) {
-                System.out.println(num);
-            }
+            if (num > media) System.out.println(num);
         }
 
     }
