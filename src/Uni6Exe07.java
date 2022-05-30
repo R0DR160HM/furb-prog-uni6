@@ -22,14 +22,26 @@ public class Uni6Exe07 {
             }
             valores[i] = novoValor;
         }
+        scan.close();
 
         // Ordenar
-        for (int i = 0; i < valores.length; i++) {
-            int valor = valores[i];
-            // if (valores[i - 1] != null && valor < valores[i - 1]) {
+        boolean changed = true;
+        while (changed) {
+            changed = false;
+            for (int i = 0; i < valores.length; i++) {
+                int valor = valores[i];
+                if (i > 0 && valor < valores[i - 1]) {
+                    changed = true;
+                    int valorAnterior = valores[i - 1];
+                    valores[i - 1] = valor;
+                    valores[i] = valorAnterior;
+                }
+            } 
+        }
 
-            // }
-        } 
+        for (int valor : valores) {
+            System.out.println(valor);
+        }
 
     }    
 }
