@@ -23,6 +23,8 @@ public class Uni6Exe04 {
             vetor2[i] = scan.nextInt();
         }
 
+        scan.close();
+
         for (int i = 0; i < vetor1.length; i++) {
             somas[i] = vetor1[i] + vetor2[i];
             System.out.println();
