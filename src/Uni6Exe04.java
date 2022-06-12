@@ -9,40 +9,76 @@ import java.util.Scanner;
  * um método para ler valores dos vetores, outro para somar e outro para escrever os vetores.
  */
 public class Uni6Exe04 {
-    public static void main(String[] args) {
-
+    public Uni6Exe04() {
         Scanner scan = new Scanner(System.in);
-
         int[] vetor1 = new int[10];
         int[] vetor2 = new int[10];
-        int[] somas = new int[10];
-
-        for (int i = 0; i < 10; i++) {
-            System.out.println((i + 1) + "° par de valores:");
-            vetor1[i] = scan.nextInt();
-            vetor2[i] = scan.nextInt();
-        }
-
+        int[] somaVetores = new int[10];
+        vetor1 = lerVetor1(scan, vetor1);
+        vetor2 = lerVetor2(scan, vetor2);
+        somaVetores = somarVetores(vetor1, vetor2, somaVetores);
+        escreverVetor1(vetor1);
+        escreverVetor2(vetor2);
+        escreverSomaVetores(somaVetores);
         scan.close();
-
-        for (int i = 0; i < vetor1.length; i++) {
-            somas[i] = vetor1[i] + vetor2[i];
-            System.out.println();
-        }
-
-        String rVetor1 = "";
-        String rVetor2 = "";
-        String rSomas = "";
-
-        for (int i = 0; i < somas.length; i++) {
-            rVetor1 += vetor1[i] + ", ";
-            rVetor2 += vetor2[i] + ", ";
-            rSomas += somas[i] + ", ";
-        }
-
-        System.out.println("Vetor 1:      " + rVetor1);
-        System.out.println("Vetor 2:      " + rVetor2);
-        System.out.println("Somas:        " + rSomas);
-
     }
+    public static void main(String[] args) {
+        new Uni6Exe04();
+    }
+
+    public int[] lerVetor1(Scanner scan, int[] vetor1) {
+        
+        for (int i = 0; i < 10; i++){
+            System.out.print("(Vetor 1) Informe o " + (i + 1) + "° valor: ");
+            vetor1[i] = scan.nextInt();
+        } 
+            
+            return vetor1;
+ 
+    }
+    public int[] lerVetor2(Scanner scan, int[] vetor2) {
+        System.out.println();
+        for (int i = 0; i < 10; i++){
+            System.out.print("(Vetor 2) Informe o " + (i + 1) + "° valor: ");
+            vetor2[i] = scan.nextInt();
+            
+        } 
+        return vetor2;
+    }
+    public int[] somarVetores(int[] vetor1, int[] vetor2, int[]somaVetores) {
+        
+        for (int i = 0; i < somaVetores.length; i++) {
+            somaVetores[i] = vetor1[i] + vetor2[i];
+
+        }
+        return somaVetores;
+    }
+    public void escreverVetor1 (int[] vetor1) {
+        System.out.println("\n");
+        System.out.print("Vetor 1: [ ");
+        for (int i = 0; i < vetor1.length; i++){
+            System.out.print(vetor1[i] + ", ");
+
+        }
+        System.out.print("]");
+    }
+    public void escreverVetor2 (int[] vetor2) {
+        System.out.println("");
+        System.out.print("Vetor 2: [ ");
+        for (int i = 0; i < vetor2.length; i++){
+            System.out.print(vetor2[i] + ", ");
+
+        }
+        System.out.print("]");
+    }
+    public void escreverSomaVetores(int[] somaVetores){
+        System.out.println("");
+        System.out.print("Soma dos Vetores: [ ");
+        for (int i = 0; i < somaVetores.length; i++){
+            System.out.print(somaVetores[i] + ", ");
+
+        }
+        System.out.print("]");
+    }
+
 }

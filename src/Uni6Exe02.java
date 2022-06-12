@@ -5,24 +5,45 @@ import java.util.Scanner;
  */
 public class Uni6Exe02 {
 
-    public static void main(String[] args) {
-        
+    public Uni6Exe02() {
         Scanner scan = new Scanner(System.in);
-        double[] vetor = new double[12];
-        double total = 0;
+        double[] valores = new double[12];
+        
+        lerValores(scan, valores);
+        double media = calcularMedia(valores, scan);
+        escreverMedia(media, valores);
+        scan.close();
+    }
+    public static void main(String[] args) {
+        new Uni6Exe02();
+    }
+    
+    public double[] lerValores(Scanner scan, double[] valores) {
 
         for (int i = 0; i < 12; i++) {
-            System.out.print("Informe o " + (i + 1) + "° número: ");
-            vetor[i] = scan.nextDouble();
-            total += vetor[i];
+            System.out.print("Informe o " + (i + 1) + "° valor: ");
+            double valor = scan.nextDouble();
+            valores[i] = valor;
         }
-        scan.close();
+        return valores;
+    }
 
-        double media = total / vetor.length;
+    public double calcularMedia(double[] valores, Scanner scan) {
+        double total = 0;
 
-        for (double num : vetor) {
-            if (num > media) System.out.println(num);
+        for (int i = 0; i < valores.length; i++) {
+            total += valores[i];
         }
+        return total / valores.length;
 
+    }
+
+    public void escreverMedia(double media, double[] valores) {
+        System.out.println("Média: " + media);
+        for (double valor : valores) {
+            if (valor > media) {
+                System.out.println("Valor maior que a média:" + valor);
+            }
+        }
     }
 }

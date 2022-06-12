@@ -1,22 +1,33 @@
 import java.util.Scanner;
 
 public class Uni6Exe01 {
-    public static void main(String[] args) throws Exception {
-
+    public Uni6Exe01() {
         Scanner scan = new Scanner(System.in);
-        int[] vetor = new int[10];
+        int[] numeros = new int[10];
+        lerNumeros(scan, numeros);
+        escreverNumeros(numeros);
+        scan.close();
+        
+    }
+    public static void main(String[] args) {
+
+        new Uni6Exe01();
+
+    }
+
+    public int[] lerNumeros(Scanner scan, int[] numeros) {
 
         for (int i = 0; i < 10; i++) {
             System.out.print("Informe o " + (i + 1) + "° número: ");
-            vetor[i] = scan.nextInt();
+            numeros[i] = scan.nextInt();
         }
-        scan.close();
+        return numeros;
+    }
 
-        String relatorio = "";
-        for (int i = vetor.length; i > 0; i--) {
-            relatorio += vetor[i - 1] + "; ";
+    public void escreverNumeros(int[] numeros) {
+        for (int i = numeros.length - 1; i >= 0; i--) {
+            System.out.println(numeros[i]);
         }
-        System.out.println(relatorio);
-        
+
     }
 }

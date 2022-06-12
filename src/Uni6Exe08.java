@@ -60,4 +60,21 @@ public class Uni6Exe08 {
     public static void main(String[] args) {
         new Uni6Exe08();
     }
+
+    public void ordenar(int[] array) {
+        boolean mudou = false;
+
+        while (mudou) {
+            mudou = false;
+            for (int i = 0; i < array.length; i++) {
+                int proximoIndex = i + 1 < array.length ? i + 1 : i;
+                if (array[i] > array[proximoIndex]) {
+                    mudou = true;
+                    int valorMenor = array[proximoIndex];
+                    array[proximoIndex] = array[i];
+                    array[i] = valorMenor;
+                }
+            }
+        }
+    }
 }
